@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import tn.esprit.springprojectesprit.enums.TypeChambre;
 
 import java.io.Serializable;
+import java.util.Set;
 
 @Entity
 public class Chambre implements Serializable {
@@ -14,4 +15,9 @@ public class Chambre implements Serializable {
 
     @Enumerated(EnumType.STRING)
     private TypeChambre typeC;
+
+    @ManyToOne
+    private Bloc bloc;
+    @OneToMany(cascade = CascadeType.ALL)
+    private Set<Reservation> reservations;
 }
