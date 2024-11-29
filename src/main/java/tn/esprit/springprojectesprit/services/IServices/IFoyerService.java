@@ -10,4 +10,6 @@ public interface IFoyerService {
      List<Foyer> retrieveAllFoyer();
      Foyer retrieveFoyerById(Long idF);
      void deleteFoyerById(Long idF);
+
+     Foyer getFoyerParNom(String nomF);
 }

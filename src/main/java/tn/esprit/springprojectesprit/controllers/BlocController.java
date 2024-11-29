@@ -3,6 +3,7 @@ package tn.esprit.springprojectesprit.controllers;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import tn.esprit.springprojectesprit.entities.Bloc;
+import tn.esprit.springprojectesprit.services.BlocService;
 import tn.esprit.springprojectesprit.services.IServices.IBlocService;
 
 import java.util.List;
@@ -10,6 +11,7 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 public class BlocController {
+    private final BlocService blocService;
     private IBlocService iBlocService;
     @PostMapping("/addBloc")
     public Bloc addBloc(@RequestBody Bloc bloc) {
@@ -30,5 +32,10 @@ public class BlocController {
     @DeleteMapping("deleteBlocById/{idB}")
     public void deleteBlocById(@PathVariable Long idB) {
         iBlocService.deleteBlocById(idB);
+    }
+
+    @GetMapping("/findBy/{capacite}")
+    public List<Bloc> getByCapacite(@PathVariable Long capacite) {
+        return blocService.getBlocParCapacite(capacite);
     }
 }

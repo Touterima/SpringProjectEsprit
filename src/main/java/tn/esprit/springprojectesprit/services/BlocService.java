@@ -39,4 +39,9 @@ public class BlocService implements IBlocService {
     public void deleteBlocById(Long idB) {
         blocRepository.deleteById(idB);
     }
+
+    @Override
+    public List<Bloc> getBlocParCapacite(Long capaciteB){
+        return blocRepository.findByCapaciteB(capaciteB);
+    }
 }

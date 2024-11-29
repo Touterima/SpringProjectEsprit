@@ -39,4 +39,9 @@ public class FoyerService implements IFoyerService {
     public void deleteFoyerById(Long idF) {
         foyerRepository.deleteById(idF);
     }
+
+    @Override
+    public Foyer getFoyerParNom(String nom){
+        return foyerRepository.findByNomF(nom);
+    }
 }

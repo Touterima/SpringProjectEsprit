@@ -11,4 +11,6 @@ public interface IBlocService {
      List<Bloc> retrieveAllBloc();
      Bloc retrieveBlocById(Long idB);
      void deleteBlocById(Long idB);
+
+     List<Bloc> getBlocParCapacite(Long capaciteB);
 }

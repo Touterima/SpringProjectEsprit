@@ -33,4 +33,10 @@ public class FoyerController {
     public void deleteFoyerById(@PathVariable Long idF) {
         foyerService.deleteFoyerById(idF);
     }
+
+    @GetMapping("/getByNom/{nomF}")
+    public Foyer getFoyerByNom(@PathVariable String nomF) {
+        return foyerService.getFoyerParNom(nomF);
+    }
+
 }
